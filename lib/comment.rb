@@ -7,12 +7,37 @@ require 'json'
 
 require 'rack'
 
-require 'rakismet'
+HAS_RAKISMET=false
+
+begin
+  require 'rakismet'
+  HAS_RAKISMET=true
+rescue LoadError
+  HAS_RAKISMET=false
+end
 
 module Comments
   class Comment
   
-    include Rakismet::Model
+    if HAS_RAKISMET
+      include Rakismet::Model
+    else
+      def spam?
+        false
+      end
+      
+      def ham?
+        false
+      end
+      
+      def spam!
+        false
+      end
+      
+      def ham!
+        false
+      end
+    end
     
     Rakismet.key = "79fabe58dd76"
     Rakismet.url = "http://drax2.tlyk.eu"
