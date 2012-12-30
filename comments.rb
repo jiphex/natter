@@ -15,13 +15,14 @@ $: << "."
 require 'lib/comment'
 require 'lib/post'
 require 'lib/errors'
+require 'lib/config'
 
-# CONFIG=YAML.load_file('config.yml')
+config = Comments::Config.new
 
 disable :protection
 
 before do
-  headers "Access-Control-Allow-Origin" => "*"
+  headers "Access-Control-Allow-Origin" => config["aca_origin"]
   content_type "text/json"
 end
 

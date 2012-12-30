@@ -1,1 +1,4 @@
-akismet_key: 79fabe58dd76
+akismet:
+- key: 79fabe58dd76
+- host: drax2.tlyk.eu
+aca_origin: '*'

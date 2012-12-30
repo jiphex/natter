@@ -1,5 +1,7 @@
 module Comments
 
+  # Used to wire-up the #{<<} method of a {Post}'s list of {Comment}s to the
+  # {Comment}.#{add_post} method.
   class CommentSet < Array
     def initialize(post)
       @sender = post
@@ -27,6 +29,8 @@ module Comments
       # @comments = []
     end
   
+    # @!attribute [rw] comments
+    # The {Comment}s for this post.
     def comments(start=0, cend=10)
       fromdb = db.lrange(@ckey, start, cend).map do |crd|
         begin

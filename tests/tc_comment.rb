@@ -2,6 +2,8 @@ require 'test/unit'
 
 require 'rubygems'
 
+require 'redis'
+
 $: << ".."
 
 require 'lib/post'
@@ -25,9 +27,9 @@ class TestComment < Test::Unit::TestCase
     :email=>TEST_EMAIL,
     :ip=>TEST_IP)
     
-    if db.exists @c.key
-      db.del @c.key
-    end
+    # if db.exists @c.key
+      # db.del @c.key
+    # end
   end
   
   def test_initializers
