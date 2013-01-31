@@ -3,15 +3,16 @@ require "bundler/capistrano"
 set :application, "natter"
 set :repository,  "git@github.com:jiphex/natter.git"
 
-set :deploy_via, :remote_cache
-set :scm, :git
 
 set :user, "james"
 
 server "drax.tlyk.eu", :app, :redis
 set :deploy_to, "/srv/ruby/comments"
 
+set :normalize_asset_timestamps, :false
 set :use_sudo, false
+set :deploy_via, :remote_cache
+set :scm, :git
 
 ssh_options[:keys] = %w('~/.ssh/id_rsa.pub')
 
