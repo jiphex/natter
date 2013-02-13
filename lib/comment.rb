@@ -11,8 +11,9 @@ require 'json'
 require 'rack'
 
 $: << File.expand_path(File.dirname($0)+"/lib")
+$: << "."
 
-require 'config'
+#require 'config'
 
 module Comments
   
