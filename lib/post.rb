@@ -28,6 +28,10 @@ module Comments
       @ckey = ckey
       # @comments = []
     end
+    
+    def to_s
+      @ckey
+    end
   
     # @!attribute [rw] comments
     # The {Comment}s for this post.
