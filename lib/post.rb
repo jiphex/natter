@@ -17,24 +17,16 @@ module Comments
     attr_reader :ckey
   
     def self.find(ckey)
-      if ckey.is_a? Comments::Post
-        ckey
-      else
-        kk = "comment:"+ckey
-        db = Redis.new
-        raise NoSuchPost unless db.exists(kk)
-        raise StandardError unless db.type(kk) == "list"
-        Post.new(kk)
-      end
+      kk = "comment:"+ckey
+      db = Redis.new
+      raise NoSuchPost unless db.exists(kk)
+      raise StandardError unless db.type(kk) == "list"
+      Post.new(kk)
     end
   
     def initialize(ckey)
       @ckey = ckey
       # @comments = []
-    end
-    
-    def to_s
-      @ckey
     end
   
     # @!attribute [rw] comments

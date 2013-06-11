@@ -85,7 +85,5 @@ post '/submit' do
   end
   db = Redis.new
   db.lpush("comment:"+ckey,c.key)
-  db.lpush("comment:_recent", c.key)
-  db.ltrim("comment:_recent", 0, 30)
   return "ok".to_json
 end
