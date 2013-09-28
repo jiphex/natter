@@ -17,6 +17,9 @@ module Comments
     attr_reader :ckey
   
     def self.find(ckey)
+      if ckey.is_a? Comments::Post
+        ckey = ckey.ckey
+      end
       kk = "comment:"+ckey
       db = Redis.new
       raise NoSuchPost unless db.exists(kk)
@@ -78,7 +81,7 @@ module Comments
     def db
       return @db if @db
       @db = Redis.new
-    end 
+    end
   
   end
 end
