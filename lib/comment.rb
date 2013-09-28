@@ -19,7 +19,7 @@ module Comments
   
   # Represents a single {Comment},which is related to a single {Post}.
   # Includes {Rakismet::Model} to allow comments to be checked for spam via the
-  # Akismet blog spam checking service. 
+  # Akismet blog spam checking service.
   # @see http://akismet.com Details of the Akismet spam checking service
   class Comment
   
@@ -79,7 +79,7 @@ module Comments
     # @option fields [Post] :post A Post object representing the comment that
     #   this post is about.
     # @option fields [DateTime] :posted When the comment was made
-    # @option fields [Hash] :meta An extra Hash containing arbitrary extra K/V 
+    # @option fields [Hash] :meta An extra Hash containing arbitrary extra K/V
     #  pairs
     # @option fields [String] :referrer The HTTP Referrer field
     #  at the time when this post was submitted. (note spelling)*
